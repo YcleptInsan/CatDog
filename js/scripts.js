@@ -1,28 +1,44 @@
 
-//BUSINESS LOGIC  (BACKEND)
-var leapYear = function(year) {
-  if ((year % 4 === 0) && (year % 100 !== 0) || (year % 400 === 0)) {
-    return true;
-  } else {
-    return false;
-  }
-};
+var number = '';
+var result = [];
 
-//USER INTERFACE   (FRONTEND)
-$(document).ready(function() {
-  $("form#leap-year").submit(function(event) {
-    event.preventDefault();
-    var year = parseInt($("input#year").val());
-    var result = leapYear(year);
 
-    $(".year").text(year);
-
-    if (!result) {          //same as writing if (result === false)
-      $(".not").text("not");
-    } else {
-      $(".not").text("");
+var pingPong = function(number) {
+  result = [];
+  if (number > 0) {
+    for (var i = 1; i <= number; i++) {
+      if ((i % 3 === 0) && (i % 5 === 0)) {
+        result.push("ping-pong")
+      } else if (i % 3 === 0) {
+        result.push("ping");
+      } else if (i % 5 === 0) {
+        result.push("pong");
+      } else {
+        result.push(i);
+      }
     }
+  } else if (number === 0) {
+    result.push("I need more than ZERO!!");
+  } else  if (number < 0){
+    result.push("Negative Ping-Pong Makes No Sense, Man!!");
+  }
+}
+
+
+
+$(document).ready(function() {
+  $("form#ping-pong").submit(function(event) {
+    $("#result").empty();
+    event.preventDefault();
+    ping = parseInt($("input#number").val());
+    var result = pingPong(number);
 
     $("#result").show();
+    // for (var i = 0; i <= result.length - 1; i++) {
+    //   $("#result").append("<li>" + result[i] + "</li>").slideDown();
+    // }
+    //
+    // $("#blank").trigger("reset");
+
   });
 });
