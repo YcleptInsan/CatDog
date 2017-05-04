@@ -1,44 +1,39 @@
 
-var number = '';
-var result = [];
 
 
-var pingPong = function(number) {
-  result = [];
-  if (number > 0) {
-    for (var i = 1; i <= number; i++) {
+var catDog = function(number) {
+  var result = [];
+  var count = [];
+  if (count  > 0) {
+    for (var i = 1; i <= count; i++) {
       if ((i % 3 === 0) && (i % 5 === 0)) {
-        result.push("ping-pong")
+        result.push("cat-dog")
+        console.log(result)
       } else if (i % 3 === 0) {
-        result.push("ping");
+        result.push("dog");
       } else if (i % 5 === 0) {
-        result.push("pong");
+        result.push("cat-dog");
       } else {
         result.push(i);
       }
     }
-  } else if (number === 0) {
-    result.push("I need more than ZERO!!");
-  } else  if (number < 0){
-    result.push("Negative Ping-Pong Makes No Sense, Man!!");
+  } else if (count === 0) {
+    result.push("Zero does not work!!");
+  } else  if (count < 0){
+    result.push("Don't be negative!");
   }
 }
 
 
-
 $(document).ready(function() {
-  $("form#ping-pong").submit(function(event) {
-    $("#result").empty();
+  $("form#cat-dog").submit(function(event) {
     event.preventDefault();
-    ping = parseInt($("input#number").val());
-    var result = pingPong(number);
+    var number =parseInt($("input#number").val());
+    (number);
 
-    $("#result").show();
-    // for (var i = 0; i <= result.length - 1; i++) {
-    //   $("#result").append("<li>" + result[i] + "</li>").slideDown();
-    // }
-    //
-    // $("#blank").trigger("reset");
+    for (var i = 0; i <= result.length - 1; i++) {
+
+    }
 
   });
 });
