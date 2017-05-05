@@ -3,7 +3,8 @@
 
 var catDog = function(number) {
   var result = [];
-  var symbols = ["0"]
+  console.log(result);
+
   // if (number > 0) {
   //   if ((number % 3 === 0) && (number % 5 === 0)) {
   //     result += ("cat-dog");
@@ -14,25 +15,26 @@ var catDog = function(number) {
   //   } else {
   //     result += (number);
   //   }
-
     for (var i = 0; i <= number; i++) {
 
+        if(number > 0) {
+          // if 0 or negative number Returns undefined
         if ((i % 3 === 0) && (i % 5 === 0)) {
           result.push("cat-dog");
         } else if (i % 3 === 0) {
           result.push("dog");
         } else if (i % 5 === 0) {
           result.push("cat");
-        } else {
-          alert("")
         }
+
 
         var endVal = result.splice(-1, 1);
 
 
+        }
+        return endVal;
       }
-      return endVal;
-  }
+    }
   // } else if (number === !0) {
   //   result.push("Zero does not work!!");
   // } else  if (number < 0){
